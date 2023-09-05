@@ -95,8 +95,4 @@ export class FormComponent {
     }
     return messages;
   }
-
-  public onSubmit(): void{
-
-  }
 }

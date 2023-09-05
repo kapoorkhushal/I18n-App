@@ -72,6 +72,8 @@ input:checked+.slider:before {
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
+    width: 35rem;
+    padding: 0 3rem;
 }
 
 .flex-divide {
@@ -88,5 +90,5 @@ input:checked+.slider:before {
 
 .pos-rel-lf {
     position: relative;
-    left: 30%;
+    left: calc(50% - 30px);
 }

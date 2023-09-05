@@ -45,7 +45,7 @@ p {
     display: flex;
     margin: 5rem auto 15rem;
     padding: 0 1rem;
-    max-width: 60rem;
+    max-width: 75rem;
     flex-direction: column;
     align-items: center;
 }
@@ -156,5 +156,5 @@ svg#clouds {
     svg#rocket-smoke {
         display: none;
         visibility: hidden;
-    }
+    } 
 }
