@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-details',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class DetailsComponent {
 
+  @Input() user!: User;
 }
