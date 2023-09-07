@@ -2,36 +2,50 @@
   <form [formGroup]="form">
     <div class="field">
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-medium" placeholder="First Name">
+        <input class="input is-medium" placeholder="First Name"
+          formControlName="firstName" (keyup)="updateFormDetails()">
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas" [class.fa-check]="form.get('firstName')?.valid"></i>
         </span>
       </p>
     </div>
     <div class="field">
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-medium" placeholder="Last Name">
+        <input class="input is-medium" placeholder="Last Name" 
+          formControlName="lastName" (keyup)="updateFormDetails()">
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas" [class.fa-check]="form.get('lastName')?.valid"></i>
         </span>
       </p>
     </div>
     <div class="field">
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-medium" type="email" placeholder="Email">
+        <input class="input is-medium" type="email" placeholder="Email" 
+          formControlName="email" (keyup)="updateFormDetails()">
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
         <span class="icon is-small is-right">
-          <i class="fas fa-check"></i>
+          <i class="fas" [class.fa-check]="form.get('email')?.valid"></i>
         </span>
       </p>
     </div>
     <div class="field">
-      <p class="control has-icons-left">
-        <input class="input is-medium" type="number" placeholder="Contact number">
+      <p class="control has-icons-left has-icons-right">
+        <input class="input is-medium" type="number" placeholder="Contact number"
+          formControlName="contactNumber" (keyup)="updateFormDetails()" 
+          (keydown)="onInput($event)">
         <span class="icon is-small is-left">
-          <i class="fas fa-solid fa-address-book"></i>
+          <i class="fas fa-address-book"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas" [class.fa-check]="isContactNumberValid(form.get('contactNumber')?.value)"></i>
         </span>
       </p>
     </div>

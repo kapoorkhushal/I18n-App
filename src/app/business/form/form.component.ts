@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChildren } from '@angular/core';
 import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Observable, debounceTime, fromEvent, merge } from 'rxjs';
+import { User } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +12,10 @@ export class FormComponent {
 
   @ViewChildren(FormControlName, { read: ElementRef }) formControls: ElementRef[] = [];
 
+  @Output() formChange = new EventEmitter<User>();
+
   public form!: FormGroup;
+
   public message: { [key: string]: string } = {};
 
   private validationMessages: {
@@ -63,8 +67,8 @@ export class FormComponent {
     this.form = this.builder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['',[ Validators.required, Validators.email]],
-      contactNumber: ['', Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')],
+      email: ['',[Validators.required, Validators.email]],
+      contactNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]]
     });
   }
 
@@ -95,4 +99,40 @@ export class FormComponent {
     }
     return messages;
   }
+
+  /**
+   * emits event when form details changed
+   */
+  public updateFormDetails() : void {
+    this.formChange.emit(new User(this.form.value));
+  }
+
+  /**
+   * checks whether input contact number is valid or not
+   * @param input 
+   * @returns boolean
+   */
+  public isContactNumberValid(input : number) : boolean {
+    return input.toString().length == 10;
+  }
+
+  public onInput(event: any) {
+    const val = event.target as any;
+
+    if (isNaN(val.value) || val.value.toString().length >= 10 || !val.value.match("^[0-9]+$"))  {
+      val.value = val.oldValue === undefined ?
+       '' : val.oldValue;
+      return;
+    }
+    val.oldValue = val.value;
+
+  } 
+
+  private replaceSelection(input: any, key: any) {
+    const inputValue = input.value;
+    const start = input.selectionStart;
+    const end = input.selectionEnd || input.selectionStart;
+    return inputValue.substring(0, start) + key + inputValue.substring(end + 1);
+  }
+
 }

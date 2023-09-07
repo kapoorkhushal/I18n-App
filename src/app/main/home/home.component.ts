@@ -13,13 +13,16 @@ export class HomeComponent {
   /**
    * defines a new instance
    */
-  constructor() {
-    this.user = {
-      firstName: "Khushal",
-      lastName: "Kapoor",
-      email: "khushalkapoor0097@gmail.com",
-      contactNumber: 8130189011
-    };
+  constructor() { 
+    this.user = { };
+  }
+
+  /**
+   * update details when form values change
+   * @param userDetails
+   */
+  public updateFormDetails(userDetails : User) : void{
+    this.user = userDetails;
   }
   
 }

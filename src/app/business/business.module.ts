@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { DetailsComponent } from './details/details.component';
     DetailsComponent
   ],
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: []
