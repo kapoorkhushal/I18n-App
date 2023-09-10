@@ -1,9 +1,9 @@
 <div>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (keyup)="updateFormDetails()">
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" placeholder="First Name"
-          formControlName="firstName" (keyup)="updateFormDetails()">
+          formControlName="firstName" maxlength=15>
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
         </span>
@@ -15,7 +15,7 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" placeholder="Last Name" 
-          formControlName="lastName" (keyup)="updateFormDetails()">
+          formControlName="lastName" maxlength=15>
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
         </span>
@@ -27,7 +27,7 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" type="email" placeholder="Email" 
-          formControlName="email" (keyup)="updateFormDetails()">
+          formControlName="email" maxlength=30>
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -39,7 +39,7 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" type="number" placeholder="Contact number"
-          formControlName="contactNumber" (keyup)="updateFormDetails()" 
+          formControlName="contactNumber" 
           (keydown)="onInput($event)">
         <span class="icon is-small is-left">
           <i class="fas fa-address-book"></i>

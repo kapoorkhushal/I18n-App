@@ -5,6 +5,14 @@
   "projects": {
     "I18n-app-demo": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale":"en-US",
+        "locales": {
+          "de":{
+            "translation": "src/locale/messages.de.xlf"
+          }
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -17,6 +25,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize":true,
+            "i18nMissingTranslation":"error",
             "outputPath": "dist/i18n-app-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -78,7 +88,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "I18n-app-demo:build"
+            "browserTarget": "I18n-app-demo:build",
+            "format": "xlf",
+            "outputPath": "src/locale"
           }
         },
         "test": {
