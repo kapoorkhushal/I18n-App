@@ -25,14 +25,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize":true,
             "i18nMissingTranslation":"error",
             "outputPath": "dist/i18n-app-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -47,6 +44,9 @@
             "scripts": []
           },
           "configurations": {
+            "de":{
+              "localize": ["de"]
+            },
             "production": {
               "budgets": [
                 {
@@ -76,6 +76,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "de":{
+              "browserTarget": "I18n-app-demo:build:development,de"
+            },
             "production": {
               "browserTarget": "I18n-app-demo:build:production"
             },

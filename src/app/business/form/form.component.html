@@ -3,6 +3,7 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" placeholder="First Name"
+          i18n-placeholder="@@FirstNamePlaceholder"
           formControlName="firstName" maxlength=15>
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
@@ -14,7 +15,8 @@
     </div>
     <div class="field">
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-medium" placeholder="Last Name" 
+        <input class="input is-medium" placeholder="Last Name"
+        i18n-placeholder="@@LastNamePlaceholder"
           formControlName="lastName" maxlength=15>
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
@@ -26,7 +28,8 @@
     </div>
     <div class="field">
       <p class="control has-icons-left has-icons-right">
-        <input class="input is-medium" type="email" placeholder="Email" 
+        <input class="input is-medium" type="email" placeholder="Email"
+        i18n-placeholder="@@EmailPlaceholder" 
           formControlName="email" maxlength=30>
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
@@ -39,6 +42,7 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input class="input is-medium" type="number" placeholder="Contact number"
+        i18n-placeholder="@@ContactNumberPlaceholder"
           formControlName="contactNumber" 
           (keydown)="onInput($event)">
         <span class="icon is-small is-left">
