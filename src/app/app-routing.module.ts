@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './main/home/home.component';
 
+const userLang = navigator.language.slice(0,2);
+
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: HomeComponent }
+  { path: `${userLang}/home`, component: HomeComponent },
+  { path: '', redirectTo: `${userLang}/home`, pathMatch: 'full' },
+  { path: '**', redirectTo: `${userLang}/home`, pathMatch: 'full' }
 ];
 
 @NgModule({

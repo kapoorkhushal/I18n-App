@@ -1,8 +1,23 @@
 <div>
-    <label class="switch pos-rel-lf">
-        <input type="checkbox" checked>
-        <span class="slider round"></span>
-    </label>
+    <div class="columns">
+        <div class="column">
+            <span class="text-field left-50 sub_head">
+                English
+            </span>
+        </div>
+        <div class="column is-1">
+            <label class="switch pos-rel-lf">
+                <input type="checkbox" [checked]="userLang === applicationLanguageEnum.Deutch">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="column">
+            <span class="text-field left-30 sub_head">
+                Deutch
+            </span>
+        </div>
+    </div>
+
     <div class="mar-t3">
         <div class="flex-row">
             <div class="flex-col">

@@ -93,3 +93,22 @@ input:checked+.slider:before {
     position: relative;
     left: calc(50% - 30px);
 }
+
+.text-field {
+    font-size: 30px;
+    font-family: monospace;
+    color: dimgray;
+}
+
+.left-50 {
+    left: 50%;
+}
+
+.left-30 {
+    left: 30%;
+}
+
+.sub_head {
+    position: relative;
+    top: 10%;
+}

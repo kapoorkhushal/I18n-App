@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApplicationLanguageEnum } from 'src/app/shared/enums/app.enum';
 import { User } from 'src/app/shared/models';
 
 @Component({
@@ -9,6 +10,9 @@ import { User } from 'src/app/shared/models';
 export class HomeComponent {
 
   public user!: User;
+
+  public userLang = navigator.language.slice(0,2);
+  public applicationLanguageEnum = ApplicationLanguageEnum;
 
   /**
    * defines a new instance
